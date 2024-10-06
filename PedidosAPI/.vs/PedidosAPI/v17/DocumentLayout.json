@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\isabe\\OneDrive\\Documentos\\Code\\.NET\\desafio-crud-pedidos\\PedidosAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C7D1F063-9271-4BEF-88CA-D8E09F297963}|PedidosAPI\\PedidosAPI.csproj|c:\\users\\isabe\\onedrive\\documentos\\code\\.net\\desafio-crud-pedidos\\pedidosapi\\pedidosapi\\controllers\\pedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7D1F063-9271-4BEF-88CA-D8E09F297963}|PedidosAPI\\PedidosAPI.csproj|solutionrelative:pedidosapi\\controllers\\pedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7D1F063-9271-4BEF-88CA-D8E09F297963}|PedidosAPI\\PedidosAPI.csproj|c:\\users\\isabe\\onedrive\\documentos\\code\\.net\\desafio-crud-pedidos\\pedidosapi\\pedidosapi\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7D1F063-9271-4BEF-88CA-D8E09F297963}|PedidosAPI\\PedidosAPI.csproj|solutionrelative:pedidosapi\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PedidoController.cs",
+              "DocumentMoniker": "C:\\Users\\isabe\\OneDrive\\Documentos\\Code\\.NET\\desafio-crud-pedidos\\PedidosAPI\\PedidosAPI\\Controllers\\PedidoController.cs",
+              "RelativeDocumentMoniker": "PedidosAPI\\Controllers\\PedidoController.cs",
+              "ToolTip": "C:\\Users\\isabe\\OneDrive\\Documentos\\Code\\.NET\\desafio-crud-pedidos\\PedidosAPI\\PedidosAPI\\Controllers\\PedidoController.cs",
+              "RelativeToolTip": "PedidosAPI\\Controllers\\PedidoController.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAAAF4AAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-05T22:37:00.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\isabe\\OneDrive\\Documentos\\Code\\.NET\\desafio-crud-pedidos\\PedidosAPI\\PedidosAPI\\Data\\DataContext.cs",
+              "RelativeDocumentMoniker": "PedidosAPI\\Data\\DataContext.cs",
+              "ToolTip": "C:\\Users\\isabe\\OneDrive\\Documentos\\Code\\.NET\\desafio-crud-pedidos\\PedidosAPI\\PedidosAPI\\Data\\DataContext.cs",
+              "RelativeToolTip": "PedidosAPI\\Data\\DataContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-05T21:57:52.604Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
