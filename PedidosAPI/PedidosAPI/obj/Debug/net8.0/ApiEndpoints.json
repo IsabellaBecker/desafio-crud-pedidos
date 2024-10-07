@@ -20,16 +20,22 @@
     ]
   },
   {
-    "ContainingType": "PedidosAPI.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
+    "ContainingType": "PedidosAPI.Controllers.PedidoController",
+    "Method": "AddPedido",
+    "RelativePath": "api/Pedido",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "pedido",
+        "Type": "PedidosAPI.Entidades.Pedido",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[PedidosAPI.WeatherForecast, PedidosAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "PedidosAPI.Entidades.Pedido",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -37,7 +43,74 @@
         ],
         "StatusCode": 200
       }
+    ]
+  },
+  {
+    "ContainingType": "PedidosAPI.Controllers.PedidoController",
+    "Method": "UpdatePedido",
+    "RelativePath": "api/Pedido",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pedido",
+        "Type": "PedidosAPI.Entidades.Pedido",
+        "IsRequired": true
+      }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": [
+      {
+        "Type": "PedidosAPI.Entidades.Pedido",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PedidosAPI.Controllers.PedidoController",
+    "Method": "GetPedidoById",
+    "RelativePath": "api/Pedido/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PedidosAPI.Entidades.Pedido",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PedidosAPI.Controllers.PedidoController",
+    "Method": "DeletePedido",
+    "RelativePath": "api/Pedido/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

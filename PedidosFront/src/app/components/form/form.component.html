@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-title>{{ isEditMode ? 'Editar Pedido' : 'Novo Pedido' }}</mat-card-title>
+    <form (ngSubmit)="onSubmit()">
+        <mat-form-field >
+            <mat-label>Nome do Cliente</mat-label>
+            <input matInput type="text" placeholder="Nome" [(ngModel)]="pedido.nomeCliente" name="nomeCliente" required>
+        </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Email do Cliente</mat-label>
+            <input matInput type="email" [(ngModel)]="pedido.emailCliente" name="emailCliente" required>
+        </mat-form-field>
+
+        <mat-checkbox [checked]="pedido.pago">Pago</mat-checkbox>
+
+        <div class="form-actions">
+            <button mat-raised-button color="primary" type="submit">
+                {{ isEditMode ? 'Atualizar Pedido' : 'Criar Pedido' }}
+            </button>
+            <button mat-raised-button color="accent" routerLink="/pedidos">Cancelar</button>
+        </div>
+    </form>
+</mat-card>

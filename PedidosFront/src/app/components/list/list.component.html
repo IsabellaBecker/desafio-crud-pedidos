@@ -1,0 +1,45 @@
+<mat-card>
+    <mat-card-title>Lista de Pedidos</mat-card-title>
+    <mat-table [dataSource]="pedidos" class="mat-elevation-z8">
+        <!-- ID do Pedido -->
+        <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let pedido"> {{pedido.id}} </mat-cell>
+        </ng-container>
+
+        <!-- Nome do Cliente -->
+        <ng-container matColumnDef="nomeCliente">
+        <mat-header-cell *matHeaderCellDef> Nome Cliente </mat-header-cell>
+        <mat-cell *matCellDef="let pedido"> {{pedido.nomeCliente}} </mat-cell>
+        </ng-container>
+
+        <!-- Email do Cliente -->
+        <ng-container matColumnDef="emailCliente">
+        <mat-header-cell *matHeaderCellDef> Email Cliente </mat-header-cell>
+        <mat-cell *matCellDef="let pedido"> {{pedido.emailCliente}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="pago">
+        <mat-header-cell *matHeaderCellDef> Pago </mat-header-cell>
+        <mat-cell *matCellDef="let pedido"> {{pedido.pago ? 'Sim' : 'Não'}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
+        <mat-cell *matCellDef="let pedido">
+            <button mat-icon-button color="primary" (click)="btnClickDetails(pedido.id)">
+            <mat-icon>visibility</mat-icon>
+            </button>
+            <!--><button mat-icon-button color="warn" (click)="deletePedido(pedido.id)">-->
+            <mat-icon>delete</mat-icon>
+            <!--</button>-->
+        </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+<!--<button mat-raised-button color="primary" [routerLink]="['/pedido/new']">Novo Pedido</button>-->
+</mat-card>
+  

@@ -169,3 +169,5 @@ C:\Users\isabe\OneDrive\Documentos\Code\.NET\desafio-crud-pedidos\PedidosAPI\Ped
 C:\Users\isabe\OneDrive\Documentos\Code\.NET\desafio-crud-pedidos\PedidosAPI\PedidosAPI\obj\Debug\net8.0\PedidosAPI.pdb
 C:\Users\isabe\OneDrive\Documentos\Code\.NET\desafio-crud-pedidos\PedidosAPI\PedidosAPI\obj\Debug\net8.0\PedidosAPI.genruntimeconfig.cache
 C:\Users\isabe\OneDrive\Documentos\Code\.NET\desafio-crud-pedidos\PedidosAPI\PedidosAPI\obj\Debug\net8.0\ref\PedidosAPI.dll
+C:\Users\isabe\OneDrive\Documentos\Code\.NET\desafio-crud-pedidos\PedidosAPI\PedidosAPI\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\isabe\OneDrive\Documentos\Code\.NET\desafio-crud-pedidos\PedidosAPI\PedidosAPI\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

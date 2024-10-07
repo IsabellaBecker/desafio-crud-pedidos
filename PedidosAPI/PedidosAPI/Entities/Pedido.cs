@@ -8,6 +8,6 @@
         public DateTime DataCriacao { get; set; }
         public bool Pago { get; set; }
         public ICollection<ItemPedido> ItensPedido { get; set; }
-        public decimal ValorTotal => ItensPedido?.Sum(item => item.Quantidade * item.Produto.Valor) ?? 0;
+        public decimal ValorTotal { get; set; }
     }
 }

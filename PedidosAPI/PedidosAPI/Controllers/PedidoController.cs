@@ -1,27 +1,26 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
+﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using PedidosAPI.DataBase;
 using PedidosAPI.Entidades;
+using PedidosAPI.Services;
 
 namespace PedidosAPI.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public class PedidoController : ControllerBase
     {
-        private readonly DataContext _dataContext;
+        private readonly IPedidoService _pedidoService;
 
-        public PedidoController(DataContext dataContext)
+        public PedidoController(IPedidoService pedidoService)
         {
-            _dataContext = dataContext;
+            _pedidoService = pedidoService;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Pedido>>> GetAllPedidos()
         {
-            var pedidos = await _dataContext.Pedidos.ToListAsync();
+            var pedidos =  await _pedidoService.GetAllPedidos();
 
             return Ok(pedidos);
         }
@@ -29,83 +28,33 @@ namespace PedidosAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Pedido>> GetPedidoById(int id)
         {
-            var pedido = await _dataContext.Pedidos.FindAsync(id);
-
-            if (pedido is null) return NotFound("Pedido não encontrado");
-
-            return Ok(pedido);
+            var pedidos = await _pedidoService.GetPedidoById(id);
+            return Ok(pedidos);
         }
 
         [HttpPost]
         public async Task<ActionResult<Pedido>> AddPedido(Pedido pedido)
         {
-            _dataContext.Pedidos.Add(pedido);
-            await _dataContext.SaveChangesAsync();
-
-            return Ok(pedido);
+            var pedidos = await _pedidoService.AddPedido(pedido);
+            return Ok(pedidos);
         }
 
         [HttpPut]
         public async Task<ActionResult<Pedido>> UpdatePedido(Pedido pedido)
         {
-            var dbPedido = await _dataContext.Pedidos.FindAsync(pedido.Id);
+            var dbPedido = await _pedidoService.UpdatePedido(pedido);
 
             if (dbPedido is null) return NotFound("Pedido não encontrado");
-
-            dbPedido.NomeCliente = pedido.EmailCliente;
-            dbPedido.EmailCliente = pedido.EmailCliente;
-            dbPedido.ItensPedido = pedido.ItensPedido;
-            dbPedido.Pago = pedido.Pago;
-            dbPedido.DataCriacao = pedido.DataCriacao;
-
-            if (pedido is not null)
-            {
-                foreach (var item in pedido.ItensPedido)
-                {
-                    var dbItem = dbPedido.ItensPedido.FirstOrDefault(i => i.Id == item.Id);
-
-                    if (dbItem is not null)
-                    {
-                        dbItem.Quantidade = item.Quantidade;
-                        dbItem.IdProduto = item.IdProduto;
-                    }
-                    else
-                    {
-                        dbPedido.ItensPedido.Add(item);
-                    }
-
-                    var itensToRemove = dbPedido.ItensPedido.Where(dbP => !pedido.ItensPedido.Any(p => p.Id == dbP.Id)).ToList();
-
-                    foreach (var itemToRemove in itensToRemove)
-                    {
-                        dbPedido.ItensPedido.Remove(itemToRemove);
-                        _dataContext.ItensPedido.Remove(itemToRemove);
-                        await _dataContext.SaveChangesAsync();
-                    }
-                }
-            }
-
-            _dataContext.Pedidos.Update(dbPedido);
-            await _dataContext.SaveChangesAsync();
-
-            return Ok(pedido);
+      
+            return Ok(dbPedido);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePedido(int id)
         {
-            var pedido = await _dataContext.Pedidos.FindAsync(id);
+            var ret = await _pedidoService.DeletePedido(id);
 
-            if (pedido is null) return NotFound("Pedido não encontrado");
-
-            foreach (var item in pedido.ItensPedido)
-            {
-                _dataContext.ItensPedido.Remove(item);
-                await _dataContext.SaveChangesAsync();
-            }
-
-            _dataContext.Pedidos.Remove(pedido);
-            await _dataContext.SaveChangesAsync();
+            if (!ret) return NotFound("Pedido não encontrado");
 
             return Ok();
         }

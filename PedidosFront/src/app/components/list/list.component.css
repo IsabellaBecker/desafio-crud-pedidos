@@ -1,0 +1,8 @@
+mat-card {
+    padding: 10px;
+    padding-top: 20px;
+}
+
+mat-card-title {
+    font-size: larger;
+}
